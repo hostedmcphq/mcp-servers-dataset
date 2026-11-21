@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Public dataset export (docs/06 §1, ADR-41 sibling): indexable servers, skills and plugins of production D1, each row
-with its hostedmcp.org page, CC BY 4.0. Writes two copies of the same rows:
+with its hostedmcp.org page, MIT (owner 21 Nov 2026: the rows come from public projects, so the most permissive
+license; it covers HostedMCP's own work, each project keeps its own license). Writes two copies of the same rows:
 
   --github DIR   the GitHub repo (github.com/hostedmcphq/mcp-servers-dataset): data/*.json (a JSON array, one row a line, so
                  weekly diffs stay readable) and README.md
@@ -131,7 +132,7 @@ remote_oauth = [s for s in servers if "remote" in s["transport"] and s["auth"] =
 jq '[.[] | select(.verified and .category == "databases")] | length' data/servers.json
 ```""")
     meta = f"""---
-license: cc-by-4.0
+license: mit
 pretty_name: MCP servers, agent skills and Claude Code plugins
 language:
 - en
@@ -209,7 +210,7 @@ Exported every week. Stars, scores and dates are as of the export date. Spotted 
 
 ## License and citation
 
-Data: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit "HostedMCP (hostedmcp.org)" with a link when you publish anything built on it.
+Data: MIT (see `LICENSE`). It covers what HostedMCP adds: the summaries, categories, checks scores and the compilation. Names, links, stars and other facts come from GitHub, the MCP Registry, npm and PyPI; each project keeps its own license (the `license` field), and no project code or README text is part of this dataset. A link to hostedmcp.org is welcome when you publish something built on it, but not required.
 
 ```bibtex
 @misc{{hostedmcp_mcp_servers_dataset,
@@ -220,6 +221,29 @@ Data: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit "HostedM
   note   = {{Exported {today}, https://huggingface.co/datasets/{HF_REPO}}}
 }}
 ```
+"""
+
+MIT = """MIT License
+
+Copyright (c) 2026 HostedMCP (hostedmcp.org)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 """
 
 
@@ -257,6 +281,8 @@ def main():
                 f.write(body)
         with open(os.path.join(root, "README.md"), "w", encoding="utf-8") as f:
             f.write(card(servers, skills, plugins, today, hf))
+        with open(os.path.join(root, "LICENSE"), "w", encoding="utf-8") as f:
+            f.write(MIT)
     print(json.dumps({"servers": len(servers), "skills": len(skills), "plugins": len(plugins), "date": today}))
 
 
