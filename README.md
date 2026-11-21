@@ -86,7 +86,7 @@ Exported every week. Stars, scores and dates are as of the export date. Spotted 
 
 ## License and citation
 
-Data: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit "HostedMCP (hostedmcp.org)" with a link when you publish anything built on it.
+Data: MIT (see `LICENSE`). It covers what HostedMCP adds: the summaries, categories, checks scores and the compilation. Names, links, stars and other facts come from GitHub, the MCP Registry, npm and PyPI; each project keeps its own license (the `license` field), and no project code or README text is part of this dataset. A link to hostedmcp.org is welcome when you publish something built on it, but not required.
 
 ```bibtex
 @misc{hostedmcp_mcp_servers_dataset,
