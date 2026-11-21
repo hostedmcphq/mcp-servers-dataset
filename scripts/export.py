@@ -2,7 +2,7 @@
 """Public dataset export (docs/06 §1, ADR-41 sibling): indexable servers, skills and plugins of production D1, each row
 with its hostedmcp.org page, CC BY 4.0. Writes two copies of the same rows:
 
-  --github DIR   the GitHub repo (github.com/Caqil/mcp-servers-dataset): data/*.json (a JSON array, one row a line, so
+  --github DIR   the GitHub repo (github.com/hostedmcphq/mcp-servers-dataset): data/*.json (a JSON array, one row a line, so
                  weekly diffs stay readable) and README.md
   --hf DIR       the Hugging Face dataset (huggingface.co/datasets/hostedmcp/mcp-servers-dataset): data/*.jsonl and a
                  README.md with the dataset card metadata, so the viewer shows three configs
@@ -28,7 +28,7 @@ from backup import D1, read_config  # noqa: E402  (tool/backup.py; copied next t
 
 SITE = "https://hostedmcp.org"
 HF_REPO = "hostedmcp/mcp-servers-dataset"
-GITHUB_REPO = "Caqil/mcp-servers-dataset"
+GITHUB_REPO = "hostedmcphq/mcp-servers-dataset"
 PAGE = 1000
 
 

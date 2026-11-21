@@ -69,7 +69,7 @@ Summaries are written by HostedMCP. READMEs and SKILL.md files are not included:
 
 ```python
 import json, urllib.request
-url = "https://raw.githubusercontent.com/Caqil/mcp-servers-dataset/main/data/servers.json"
+url = "https://raw.githubusercontent.com/hostedmcphq/mcp-servers-dataset/main/data/servers.json"
 servers = json.load(urllib.request.urlopen(url))
 remote_oauth = [s for s in servers if "remote" in s["transport"] and s["auth"] == "oauth"]
 ```
