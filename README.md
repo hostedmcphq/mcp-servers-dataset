@@ -1,39 +1,39 @@
 # MCP servers dataset
 
-An open dataset of **30,596 MCP servers**, **63,996 agent skills** and **5,096 Claude Code plugins**, with automated security checks, exported from [HostedMCP](https://hostedmcp.org) on 2026-11-21.
+An open dataset of **32,126 MCP servers**, **64,014 agent skills** and **5,240 Claude Code plugins**, with automated security checks, exported from [HostedMCP](https://hostedmcp.org) on 2026-11-22.
 
 Every row links to its page on [hostedmcp.org](https://hostedmcp.org), where you find the install config for Claude Code, Cursor, VS Code, Codex and other clients, and the full checks report. Also on Hugging Face: [hostedmcp/mcp-servers-dataset](https://huggingface.co/datasets/hostedmcp/mcp-servers-dataset) (the same rows as JSON Lines, with a viewer).
 
 | File | Rows | What |
 |---|---|---|
-| `data/servers.json` | 30,596 | [MCP servers](https://hostedmcp.org/servers) from the MCP Registry, GitHub, npm and PyPI |
-| `data/skills.json` | 63,996 | [Agent Skills](https://hostedmcp.org/skills) (folders with a SKILL.md) from public GitHub repositories |
-| `data/plugins.json` | 5,096 | [Claude Code plugins](https://hostedmcp.org/plugins) from public marketplaces |
+| `data/servers.json` | 32,126 | [MCP servers](https://hostedmcp.org/servers) from the MCP Registry, GitHub, npm and PyPI |
+| `data/skills.json` | 64,014 | [Agent Skills](https://hostedmcp.org/skills) (folders with a SKILL.md) from public GitHub repositories |
+| `data/plugins.json` | 5,240 | [Claude Code plugins](https://hostedmcp.org/plugins) from public marketplaces |
 
 Only listings that pass HostedMCP's quality bar are included (an indexable page: enriched, with enough content, not a duplicate). The full catalog tracks more; the monthly [State of MCP](https://hostedmcp.org/learn/state-of-mcp) report has numbers on the whole ecosystem, month by month.
 
 ## At a glance
 
-- 755 servers are published by the vendor of the product (`official`).
-- 13,410 servers are Verified: automated checks score 80 or more, at least 60 points checked, public repository, no high-severity finding. [How the checks work](https://hostedmcp.org/about/verification), and the [MCP security report](https://hostedmcp.org/reports/mcp-security).
-- 9,465 servers (31%) can be used remotely over HTTP. Browse them at [hostedmcp.org/remote](https://hostedmcp.org/remote).
+- 768 servers are published by the vendor of the product (`official`).
+- 13,903 servers are Verified: automated checks score 80 or more, at least 60 points checked, public repository, no high-severity finding. [How the checks work](https://hostedmcp.org/about/verification), and the [MCP security report](https://hostedmcp.org/reports/mcp-security).
+- 10,153 servers (32%) can be used remotely over HTTP. Browse them at [hostedmcp.org/remote](https://hostedmcp.org/remote).
 
 Servers by category:
 
 | Category | Servers |
 |---|---|
-| [developer-tools](https://hostedmcp.org/categories/developer-tools) | 7,573 |
-| [automation](https://hostedmcp.org/categories/automation) | 4,567 |
-| [productivity](https://hostedmcp.org/categories/productivity) | 4,034 |
-| [search-web](https://hostedmcp.org/categories/search-web) | 2,194 |
-| [finance-data](https://hostedmcp.org/categories/finance-data) | 2,046 |
-| [security](https://hostedmcp.org/categories/security) | 1,746 |
-| [ai-models](https://hostedmcp.org/categories/ai-models) | 1,021 |
-| [devops-infra](https://hostedmcp.org/categories/devops-infra) | 830 |
-| [docs-knowledge](https://hostedmcp.org/categories/docs-knowledge) | 829 |
-| [communication](https://hostedmcp.org/categories/communication) | 748 |
-| [browser-automation](https://hostedmcp.org/categories/browser-automation) | 627 |
-| [crm-marketing](https://hostedmcp.org/categories/crm-marketing) | 620 |
+| [developer-tools](https://hostedmcp.org/categories/developer-tools) | 7,781 |
+| [automation](https://hostedmcp.org/categories/automation) | 4,813 |
+| [productivity](https://hostedmcp.org/categories/productivity) | 4,274 |
+| [search-web](https://hostedmcp.org/categories/search-web) | 2,370 |
+| [finance-data](https://hostedmcp.org/categories/finance-data) | 2,233 |
+| [security](https://hostedmcp.org/categories/security) | 1,833 |
+| [ai-models](https://hostedmcp.org/categories/ai-models) | 1,068 |
+| [docs-knowledge](https://hostedmcp.org/categories/docs-knowledge) | 876 |
+| [devops-infra](https://hostedmcp.org/categories/devops-infra) | 857 |
+| [communication](https://hostedmcp.org/categories/communication) | 780 |
+| [crm-marketing](https://hostedmcp.org/categories/crm-marketing) | 657 |
+| [browser-automation](https://hostedmcp.org/categories/browser-automation) | 651 |
 
 Most starred:
 
@@ -94,6 +94,6 @@ Data: MIT (see `LICENSE`). It covers what HostedMCP adds: the summaries, categor
   author = {HostedMCP},
   year   = {2026},
   url    = {https://hostedmcp.org},
-  note   = {Exported 2026-11-21, https://huggingface.co/datasets/hostedmcp/mcp-servers-dataset}
+  note   = {Exported 2026-11-22, https://huggingface.co/datasets/hostedmcp/mcp-servers-dataset}
 }
 ```
