@@ -212,6 +212,12 @@ Exported every week. Stars, scores and dates are as of the export date. Spotted 
 
 Data: MIT (see `LICENSE`). It covers what HostedMCP adds: the summaries, categories, checks scores and the compilation. Names, links, stars and other facts come from GitHub, the MCP Registry, npm and PyPI; each project keeps its own license (the `license` field), and no project code or README text is part of this dataset. A link to hostedmcp.org is welcome when you publish something built on it, but not required.
 
+Credit line, ready to paste: `Data: HostedMCP (https://hostedmcp.org)`. Or a badge:
+
+```markdown
+[![Data: HostedMCP](https://img.shields.io/badge/data-HostedMCP-2563eb)](https://hostedmcp.org)
+```
+
 ```bibtex
 @misc{{hostedmcp_mcp_servers_dataset,
   title  = {{MCP servers dataset}},
