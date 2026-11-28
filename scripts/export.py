@@ -41,7 +41,9 @@ def primary(kind: str, alias: str) -> str:
 
 
 def paged(db: D1, select: str, table: str, where: str) -> list[dict]:
-    """Every matching row, by rowid: no OFFSET scans, one page a second."""
+    """Every matching row, by rowid: no OFFSET scans, one page a second. Callers write `+x.status` and `+x.indexable`
+    (unary plus): otherwise SQLite walks the *_quality index and sorts every matching row for each page (EXPLAIN,
+    28 Nov 2026), instead of reading the table once along the rowid."""
     rows: list[dict] = []
     after = -(2**63)
     while True:
@@ -70,12 +72,12 @@ def by_quality(rows: list[dict]) -> list[dict]:
 def export(db: D1) -> tuple[list[dict], list[dict], list[dict]]:
     servers = by_quality(paged(db, f"""x.id, x.slug_owner o, x.slug_name n, x.display_name, x.registry_name, x.repo_url, x.summary_en, {primary("server", "x")} category,
         x.transport_local, x.transport_remote, x.auth_type, x.languages, x.license, x.stars, x.downloads_30d, x.tools_count, x.is_official,
-        x.is_verified, x.scan_score, x.last_commit_at, x.updated_at, x.quality_score""", "servers", "x.indexable = 1 and x.status = 'active' and x.canonical_id is null"))
+        x.is_verified, x.scan_score, x.last_commit_at, x.updated_at, x.quality_score""", "servers", "+x.indexable = 1 and +x.status = 'active' and x.canonical_id is null"))
     skills = by_quality(paged(db, f"""x.id, x.slug_owner o, x.slug_name n, x.name, x.repo_url, x.path, x.summary_en, {primary("skill", "x")} category, x.license,
         x.stars, x.allowed_tools, x.is_official, x.is_verified, x.scan_score, x.last_commit_at, x.updated_at, x.quality_score""",
-        "skills", "x.indexable = 1 and x.status = 'active' and x.canonical_id is null"))
+        "skills", "+x.indexable = 1 and +x.status = 'active' and x.canonical_id is null"))
     plugins = by_quality(paged(db, """x.id, x.slug_owner o, x.slug_name n, x.name, x.marketplace_repo, x.marketplace_name, x.summary_en, x.category, x.license,
-        x.stars, x.version, x.updated_at, x.quality_score""", "plugins", "x.indexable = 1 and x.status = 'active'"))
+        x.stars, x.version, x.updated_at, x.quality_score""", "plugins", "+x.indexable = 1 and +x.status = 'active'"))
 
     def checks_url(kind, r):
         return None if r["scan_score"] is None else f"{SITE}/{kind}/{r['o']}/{r['n']}/checks"
