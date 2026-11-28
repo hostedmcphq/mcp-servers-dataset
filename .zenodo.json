@@ -1,0 +1,12 @@
+{
+  "upload_type": "dataset",
+  "title": "HostedMCP dataset: MCP servers, agent skills and Claude Code plugins",
+  "description": "An open dataset of Model Context Protocol (MCP) servers, agent skills (folders with a SKILL.md) and Claude Code plugins, with automated security checks scores, categories and summaries. Exported every week from <a href=\"https://hostedmcp.org\">HostedMCP</a>; every row links to its page on hostedmcp.org. Names, links, stars and other facts come from GitHub, the MCP Registry, npm and PyPI; each project keeps its own license, and no project code or README text is included.",
+  "creators": [{ "name": "HostedMCP" }],
+  "license": "MIT",
+  "keywords": ["Model Context Protocol", "MCP", "MCP servers", "agent skills", "Claude Code", "AI agents", "dataset", "security"],
+  "related_identifiers": [
+    { "identifier": "https://hostedmcp.org", "relation": "isSupplementTo", "resource_type": "other" },
+    { "identifier": "https://huggingface.co/datasets/hostedmcp/mcp-servers-dataset", "relation": "isIdenticalTo", "resource_type": "dataset" }
+  ]
+}
