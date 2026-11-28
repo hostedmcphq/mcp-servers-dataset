@@ -15,7 +15,7 @@ Only listings that pass HostedMCP's quality bar are included (an indexable page:
 ## At a glance
 
 - 776 servers are published by the vendor of the product (`official`).
-- 13,049 servers are Verified: automated checks score 80 or more, at least 60 points checked, public repository, no high-severity finding. [How the checks work](https://hostedmcp.org/about/verification), and the [MCP security report](https://hostedmcp.org/reports/mcp-security).
+- 13,054 servers are Verified: automated checks score 80 or more, at least 60 points checked, public repository, no high-severity finding. [How the checks work](https://hostedmcp.org/about/verification), and the [MCP security report](https://hostedmcp.org/reports/mcp-security).
 - 10,540 servers (32%) can be used remotely over HTTP. Browse them at [hostedmcp.org/remote](https://hostedmcp.org/remote).
 
 Servers by category:
