@@ -28,7 +28,8 @@ import urllib.error
 import urllib.request
 
 CONFIG = os.path.expanduser("~/.config/hostedmcp")
-DATABASES = {"staging": "hostedmcp-db-staging", "production": "hostedmcp-db"}
+# Production: the main database since ADR-49 (the locale databases are in the weekly D1SnapshotWorkflow copy).
+DATABASES = {"staging": "hostedmcp-db-staging", "production": "hostedmcp-main"}
 PAGE = 1000
 SKIP_PREFIXES = ("sqlite_", "_cf_", "listings_fts")
 # Tables whose rows are a cache: the table is created on restore, empty.

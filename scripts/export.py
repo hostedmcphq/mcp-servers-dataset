@@ -266,7 +266,7 @@ def main():
         token, account = os.environ["CF_API_TOKEN"], os.environ["CF_ACCOUNT_ID"]
     else:
         token, account = read_config()
-    db = D1(token, account, {"production": "hostedmcp-db", "staging": "hostedmcp-db-staging"}[a.env])
+    db = D1(token, account, {"production": "hostedmcp-main", "staging": "hostedmcp-db-staging"}[a.env])
     servers, skills, plugins = export(db)
     # A broken export (a failed query read as empty) must never replace the published files.
     if len(servers) < 1000 or len(skills) < 1000:
