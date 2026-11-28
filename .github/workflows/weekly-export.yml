@@ -45,3 +45,8 @@ jobs:
           cp data/*.json "$RUNNER_TEMP/kaggle/"
           echo '{"id": "hostedmcp/mcp-servers-dataset"}' > "$RUNNER_TEMP/kaggle/dataset-metadata.json"
           kaggle datasets version -p "$RUNNER_TEMP/kaggle" -m "Weekly export $(date -u +%F)"
+      - name: Zenodo version (first week of the month)
+        # New version of DOI 10.5281/zenodo.24615901; scripts/zenodo_upload.py skips other weeks and an existing month.
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: python3 scripts/zenodo_upload.py data

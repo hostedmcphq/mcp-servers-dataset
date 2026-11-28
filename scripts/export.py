@@ -30,6 +30,9 @@ from backup import D1, read_config  # noqa: E402  (tool/backup.py; copied next t
 SITE = "https://hostedmcp.org"
 HF_REPO = "hostedmcp/mcp-servers-dataset"
 GITHUB_REPO = "hostedmcphq/mcp-servers-dataset"
+# Zenodo concept DOI: always resolves to the newest version (monthly, tool/dataset/zenodo_upload.py; 28 Nov 2026).
+ZENODO_CONCEPT_DOI = "10.5281/zenodo.24615901"
+KAGGLE = "https://www.kaggle.com/datasets/hostedmcp/mcp-servers-dataset"
 PAGE = 1000
 
 
@@ -119,6 +122,7 @@ def card(servers, skills, plugins, today: str, hf: bool) -> str:
     cell = lambda t: t.replace("|", "\\|")  # noqa: E731
     other = (f"Also on GitHub: [{GITHUB_REPO}](https://github.com/{GITHUB_REPO}) (the same rows as JSON arrays)." if hf
              else f"Also on Hugging Face: [{HF_REPO}](https://huggingface.co/datasets/{HF_REPO}) (the same rows as JSON Lines, with a viewer).")
+    other += f" The same files on [Kaggle]({KAGGLE}), and every month on [Zenodo](https://doi.org/{ZENODO_CONCEPT_DOI}) with a DOI for citing."
     load = (f"""```python
 from datasets import load_dataset
 servers = load_dataset("{HF_REPO}", "servers", split="train")
@@ -159,6 +163,8 @@ configs:
 
 """ if hf else ""
     return f"""{meta}# MCP servers dataset
+
+[![DOI](https://zenodo.org/badge/DOI/{ZENODO_CONCEPT_DOI}.svg)](https://doi.org/{ZENODO_CONCEPT_DOI})
 
 An open dataset of **{n(len(servers))} MCP servers**, **{n(len(skills))} agent skills** and **{n(len(plugins))} Claude Code plugins**, with automated security checks, exported from [HostedMCP]({SITE}) on {today}.
 
